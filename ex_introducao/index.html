@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://maurizzzio.github.io/function-plot/js/function-plot.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.5.2/math.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div id="demo"></div>
+</body>
+<script type="text/javascript">
+console.log('olha -> ',Math.log2(1024));
+functionPlot({
+	xAxis: {
+		domain: [1,100]
+	},
+	yAxis: {
+		domain: [0, 30000]
+	},
+	disableZoom: true,
+  target: '#demo',
+  data: [
+	  {
+	  	fn: '8*x^2',
+	  	color: 'red'
+	  },
+  	{
+  		fn: '64*x*log2(x)',
+  		color: 'green',
+  		graphType: 'interval'	
+  	}
+  ]
+})
+
+</script>
+</html>
