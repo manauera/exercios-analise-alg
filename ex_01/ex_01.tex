@@ -11,7 +11,7 @@
 
 \usepackage[utf8]{inputenc}
 
-\title{Exercício Introdução}
+\title{Lista de Exercícios 01}
 \author{Gustavo Higuchi}
 \date{Agosto 2016}
 
@@ -19,10 +19,32 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
 
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all  
+}
+
+%o começo do documento
 \begin{document}
 
+% compila o título
 \maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
 \section{Exercício 1}
 \subsection*{(a)}
 
@@ -140,7 +162,63 @@
 \end{split}
 \end{equation}
 
-\section{Exercício 2}
+\section{Exercício 4}
+\subsection*{(a)}
+\begin{equation}
+	\log_2 1024 = 10
+\end{equation}
 
+\subsection*{(b)}
+\begin{equation}
+	\log_{10} 0.0001 = -3
+\end{equation}
+
+\subsection*{(c)}
+\begin{equation}
+	\log_{49} 7 = \dfrac{1}{2} 
+\end{equation}
+
+\subsection*{(d)}
+\begin{equation}
+	\log_{32} \dfrac{1}{4}  = -\dfrac{2}{5} 
+\end{equation}
+
+\section{Exercício 5}
+\subsection*{(a)}
+\begin{equation}
+	\log_5 125  = 3
+\end{equation}
+
+\subsection*{(b)}
+\begin{equation}
+	\log_{81} 3  = \dfrac{1}{3}
+\end{equation}
+
+\subsection*{(c)}
+\begin{equation}
+	\log_e (\dfrac{1}{e^3})  = 3
+\end{equation}
+
+\subsection*{(d)}
+\begin{equation}
+	\log_c \sqrt{c} = \dfrac{1}{2} 
+\end{equation}
+
+\section{Exercício 6}]
+\subsection*{(a)}
+\begin{equation}
+	\log_2 x = 2y
+\end{equation}
+
+\subsection*{(b)}
+\begin{equation}
+	\log_8 x = \dfrac{1}{2}y
+\end{equation}
+
+\subsection*{(c)}
+\begin{equation}
+	\log_{16} x = \dfrac{1}{4}y
+\end{equation}
 
 \end{document}
+
