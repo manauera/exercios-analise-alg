@@ -95,12 +95,43 @@
 
 
 \subsection*{(b)}
-\newtheorem{teo1}{Teorema}
-\begin{teo1}
-    Para qualquer $n \in  \mathbb{Z^+}$, a seguinte equação é verdadeira.
+\newtheorem{teo2}{Teorema}
+\begin{teo2}
+    Para qualquer $n \in  \mathbb{N}$ e todo $c \in \mathbb{C} - {1,0}$,
+    a seguinte equação é verdadeira.
 	\begin{equation}
-		1^3 + 2^3 + .. + n^3 = \dfrac{n^2(n+1)^2}{4}
+		\sum\limits_{i=0}^{n} c^i = \dfrac{c^{n+1} - 1}{c - 1}
 	\end{equation}	
-\end{teo1}
+\end{teo2}
+\begin{proof}
+	Para $n = 1$ e $c = 2$, temos
+	\begin{equation}
+	\begin{split}
+		\sum\limits_{i=0}^{1} c^i = c^0 + c^1 & = \dfrac{c^{1+1} - 1}{c - 1} \\
+		1 + c^1 & = \dfrac{c^2 - 1}{c - 1} \\ 
+		1 + 2 & = \dfrac{2^2 - 1}{2 - 1} \\
+		3 & = 3
+	\end{split}
+	\end{equation}
 
+	É verdade, daí para $n = 2$ e $c = 3$, temos
+	\begin{equation}
+	\begin{split}
+		\sum\limits_{i=0}^{2} c^i = c^0 + c^1 + c^2 & = \dfrac{c^{2+1} - 1}{c - 1} \\
+		1 + 3 + 3^2 & = \dfrac{ 3^3 - 1}{3 - 1}\\
+		13 & = \dfrac{26}{2} = 13
+	\end{split}
+	\end{equation}
+
+	Então, vamos supor que para $n = k$ e $c = l$ isso também vale, assim temos
+
+	\begin{equation}
+		\begin{split}
+		\sum\limits_{i=0}^{k} c^i = c^0 + c^1 + .. + c^k & = \dfrac{c^{k+1} - 1}{c - 1} \\
+		\dfrac{(c^0+c^k)k}{2} & = \dfrac{c^{k+1} - 1}{c - 1} \\
+		\dfrac{(c^k + 1)}{2} & = \dfrac{c^{k+1} - 1}{c - 1}\\
+		c^k + 1 & = c^{k+1} - 1
+		\end{split}
+	\end{equation}
+\end{proof}
 \end{document}
