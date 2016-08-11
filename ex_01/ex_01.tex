@@ -210,6 +210,35 @@
 	Sucesso! Provado por indução!
 \end{proof}
 
+\section{Exercício 3}
+\subsection*{(a)}
+\begin{equation}
+	\sum\limits_{k=1}^{n}(2k - 1) =  \sum\limits_{k=1}^{n}k^2 - (k - 1)^2
+\end{equation}
+	Se definirmos $a_k = k^2$, a partir da função do exercício anterior, temos
+\begin{equation}
+\begin{split}
+	\sum\limits_{k=1}^{n}(2k - 1) & =  \sum\limits_{k=1}^{n}a_k - a_{k-1}\\
+	& =  a_k - a_1 \\
+	& = n^2 - (1 - 1)^2 \\
+	\sum\limits_{k=1}^{n}(2k - 1) & = n^2 
+\end{split}
+\end{equation}
+
+\subsection*{(b)}
+	Da equação dada, isolando o $k$:
+\begin{equation}
+\begin{split}
+	\sum\limits_{k=1}^{n}k & =  \dfrac{\sum\limits_{k=1}^{n}k^2 - (k - 1)^2 - 1}{2}\\
+	& = \dfrac{\sum\limits_{k=1}^{n}a_k - a_{k - 1} - 1}{2}\\
+	& = \dfrac{1}{2}\sum\limits_{k=1}^{n}(a_k - a_{k - 1} - 1)\\
+	& = \dfrac{1}{2} * (a_k - a_{k-1} - 1) \\
+	& = \dfrac{n^2 - (1 - 1)^2 - 1}{2} \\
+	\sum\limits_{k=1}^{n}k & = \dfrac{n^2 - 1}{2}
+\end{split}
+\end{equation}
+
+
 \section{Exercício 4}
 \subsection*{(a)}
 \begin{equation}
