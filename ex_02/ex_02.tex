@@ -104,34 +104,215 @@
 	\end{equation}	
 \end{teo2}
 \begin{proof}
-	Para $n = 1$ e $c = 2$, temos
+	Para $n = 0$, temos
 	\begin{equation}
 	\begin{split}
-		\sum\limits_{i=0}^{1} c^i = c^0 + c^1 & = \dfrac{c^{1+1} - 1}{c - 1} \\
-		1 + c^1 & = \dfrac{c^2 - 1}{c - 1} \\ 
-		1 + 2 & = \dfrac{2^2 - 1}{2 - 1} \\
-		3 & = 3
+		\sum\limits_{i=0}^{0} c^i & = \dfrac{c^{0+1} - 1}{c - 1} \\
+		c + 1 & = \dfrac{c^2 - 1}{c - 1} \\ 
+		(c + 1)(c - 1) & = c^2 - 1 \\
+		c^2 - c + c - 1 & = \\ 
+		c^2 - 1 & = c^2 - 1
 	\end{split}
 	\end{equation}
 
-	É verdade, daí para $n = 2$ e $c = 3$, temos
+	Para $n = 1$, temos
 	\begin{equation}
 	\begin{split}
-		\sum\limits_{i=0}^{2} c^i = c^0 + c^1 + c^2 & = \dfrac{c^{2+1} - 1}{c - 1} \\
-		1 + 3 + 3^2 & = \dfrac{ 3^3 - 1}{3 - 1}\\
-		13 & = \dfrac{26}{2} = 13
+		\sum\limits_{i=0}^{1} c^i & = \dfrac{c^{1+1} - 1}{c - 1} \\
+		c^2 + c + 1 & = \dfrac{c^3 - 1}{c - 1} \\ 
+		(c^2 + c + 1)(c - 1) & = c^2 - 1 \\
+		c^3 - c^2 + c^2 -c + c - 1 & = \\ 
+		c^2 - 1 & = c^2 - 1
 	\end{split}
 	\end{equation}
 
-	Então, vamos supor que para $n = k$ e $c = l$ isso também vale, assim temos
+	É verdade, então vamos supor que o teorema é válido para $n = k$, assim
+
+	\begin{equation}
+	\begin{split}
+		\sum\limits_{i=0}^{k} c^i & = \dfrac{c^{k+1} - 1}{c - 1} \\
+	\end{split}
+	\end{equation}
+
+	Então, vamos verificar se para $n = k+1$ isso também vale, temos
 
 	\begin{equation}
 		\begin{split}
-		\sum\limits_{i=0}^{k} c^i = c^0 + c^1 + .. + c^k & = \dfrac{c^{k+1} - 1}{c - 1} \\
-		\dfrac{(c^0+c^k)k}{2} & = \dfrac{c^{k+1} - 1}{c - 1} \\
-		\dfrac{(c^k + 1)}{2} & = \dfrac{c^{k+1} - 1}{c - 1}\\
-		c^k + 1 & = c^{k+1} - 1
+		\sum\limits_{i=0}^{k+1}c^i & = \dfrac{c^{k+2} - 1}{c - 1} \\
+		\sum\limits_{i=0}^{k}c^i c^{k+1} & = \dfrac{c^{k+2} - 1}{c - 1} \\
+		\dfrac{c^{k+1} - 1}{c - 1} + ( c^{k+1} )(c - 1) & = \dfrac{c^{k+2} - 1}{c - 1}\\
+		\dfrac{c^{k+1} - 1 + c^{k+2} - c^{k+1}}{c - 1}  & = \dfrac{c^{k+2} - 1}{c - 1}\\
+		\dfrac{c^{k+2} - 1 }{c - 1}  & = \dfrac{c^{k+2} - 1}{c - 1}\\
 		\end{split}
 	\end{equation}
+
+	É verdade também
+\end{proof}
+
+\subsection*{(c)}
+\newtheorem{teo3}{Teorema}
+\begin{teo3}
+	$n^3 + 2n$ é divisível por 3 para todo $n \in \mathbb{N^+}$
+\end{teo3}
+\begin{proof}
+	Para $n = 0$, temos
+	\begin{equation}
+		\dfrac{0^3 + 2*0}{3} = 0
+	\end{equation}
+
+	Para $n = 1$, temos
+	\begin{equation}
+		\dfrac{1^3 + 2*1}{3} = \dfrac{3}{3} = 1
+	\end{equation}
+
+	Para $n = 2$, temos
+	\begin{equation}
+		\dfrac{2^3 + 2*2}{3} = \dfrac{8 + 4}{3} = 4
+	\end{equation}
+
+	Para $n = 3$, temos
+	\begin{equation}
+		\dfrac{3^3 + 2*3}{3} = \dfrac{9 + 6}{3} = 5
+	\end{equation}
+
+	Para $n = 4$, temos
+	\begin{equation}
+		\dfrac{4^3 + 2*4}{3} = \dfrac{64 + 8}{3} = 24
+	\end{equation}
+
+	Então vamos supor que para um $n = k$ isso também dá certo.
+	\begin{equation}
+		\dfrac{k^3 + 2k}{3} = ??
+	\end{equation}
+\end{proof}
+
+\subsection*{(d)}
+\newtheorem{teo4}{Teorema}
+\begin{teo4}
+	$9^n - 1$ é divisível por 8 para qualquer $n \in \mathbb{N^+}$ 
+\end{teo4}
+\begin{proof}
+	Para $n = 0$, temos
+	\begin{equation}
+		\dfrac{9^0 - 1}{8} = 0
+	\end{equation}
+
+	Para $n = 1$, temos
+	\begin{equation}
+		\dfrac{9^1 - 1}{8} = \dfrac{8}{8} = 1
+	\end{equation}
+
+	Para $n = 2$, temos
+	\begin{equation}
+		\dfrac{9^2 - 1}{8} = \dfrac{80}{8} = 10
+	\end{equation}
+
+	Então vamos supor que para um $n = k$ isso também dá certo.
+	\begin{equation}
+		\dfrac{9^k - 1}{8} = ??
+	\end{equation}
+\end{proof}
+
+\subsection*{(e)}
+\newtheorem{teo5}{Teorema}
+\begin{teo5}
+	$n^2 - 1$ é divisível por 8 para qualquer $n \in \mathbb{N}$ ímpar
+\end{teo5}
+
+\begin{proof}
+	Para $n = 0$, temos
+	\begin{equation}
+		\dfrac{0^2 - 1}{8} = 0
+	\end{equation}
+
+	Para $n = 1$, temos
+	\begin{equation}
+		\dfrac{1^2 - 1}{8} = 0
+	\end{equation}
+
+	Para $n = 3$, temos
+	\begin{equation}
+		\dfrac{3^2 - 1}{8} = \dfrac{8}{8} = 1
+	\end{equation}
+
+	Então vamos supor que para um $n = k$ isso também dá certo.
+	\begin{equation}
+		\dfrac{k^2 - 1}{8} = ??
+	\end{equation}
+\end{proof}
+
+\subsection*{(f)}
+\newtheorem{teo6}{Teorema}
+\begin{teo6}
+	$\sum\limits_{i = 1}^{n}i * (i+1) = \dfrac{n(n + 1)(n + 2)}{3} $
+\end{teo6}
+
+\begin{proof}
+	Para $n = 1$, temos
+	\begin{equation}
+	\begin{split}
+		1 * 2 & = \dfrac{1*(1 + 1)*(1 + 2)}{3} \\
+		2 & = \dfrac{6}{3} = 2
+	\end{split}
+	\end{equation}
+
+	Para $n = 2$ temos
+	\begin{equation}
+	\begin{split}
+		(1 * 2)+(2 * 3) & = \dfrac{2*(2 + 1)(2 + 2)}{3}\\
+		8 & = \dfrac{24}{3} = 8
+	\end{split}
+	\end{equation}
+
+	Assumindo que seja verdade para $n = k$, 
+	\begin{equation}
+		\sum\limits_{i = 1}^{k}i * (i+1) = \dfrac{k(k + 1)(k + 2)}{3}
+	\end{equation}
+
+
+	vamos provar para $n = k +1$
+	\begin{equation}
+		\begin{split}
+		\sum\limits_{i = 1}^{k+1}i * (i+1)  = & \dfrac{(k + 1)(k + 2)(k + 3)}{3}\\
+		\sum\limits_{i = 1}^{k}i * (i+1) + (k + 1)(k + 2) = &\dfrac{(k + 1)(k + 2)(k + 3)}{3}\\
+		\dfrac{k(k + 1)(k + 2)}{3} + (k^2 + 3k + 2) = &\\
+		\dfrac{k(k + 1)(k + 2) + 3*(k^2 + 3k + 2) }{3}  = &\\
+		\dfrac{k^3 + 3k^2 + 2k + 3k^2 + 9k + 6 }{3}  = &\\
+		\dfrac{k^3 + 6k^2 + 11k + 6}{3} = & \\
+		\dfrac{(k + 1)(k + 2)(k + 3)}{3} = &
+		\end{split}
+	\end{equation}
+\end{proof}
+
+\subsection*{(g)}
+\newtheorem{teo7}{Teorema}
+\begin{teo7}
+	$2^{n+2} + 3^{2n+1}$ é divisível por 7 para todo $n \in \mathbb{N^+}$
+\end{teo7}
+\begin{proof}
+	Para $n = 0$
+	\begin{equation}
+		\dfrac{2^{0 + 2} + 3^{0 + 1}}{7} = \dfrac{4 + 3}{7} = 1
+	\end{equation}
+
+	Para $n = 1$ temos
+	\begin{equation}
+		\dfrac{2^{1+2}+3^{2+1}}{7} = \dfrac{8 + 27}{7} = 5 
+	\end{equation}
+
+	Para $n = 2$ temos
+	\begin{equation}
+		\dfrac{2^{2+2}+3^{4+1}}{7} = \dfrac{16 + 243}{7} = 37
+	\end{equation}
+
+	Vamos supor que para $n = k$ também é verdade
+	\begin{equation}
+		\dfrac{2^{n+2} + 3^{2n+1}}{7} = ??
+	\end{equation}
+\end{proof}
+
+\section{Exercício 2}
+\begin{proof}
+
 \end{proof}
 \end{document}
