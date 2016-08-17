@@ -160,30 +160,30 @@
 		\dfrac{0^3 + 2*0}{3} = 0
 	\end{equation}
 
+	Que é divisível por 3.
+
 	Para $n = 1$, temos
 	\begin{equation}
 		\dfrac{1^3 + 2*1}{3} = \dfrac{3}{3} = 1
 	\end{equation}
 
-	Para $n = 2$, temos
+	Também.
+
+	Assim, para um $n = k$, vamos assumir que seja verdade. 
+
+	Então vamos provar pra $n = k + 1$, daí
+
 	\begin{equation}
-		\dfrac{2^3 + 2*2}{3} = \dfrac{8 + 4}{3} = 4
+		\begin{split}
+		(k+1)^3 + 2(k + 1) & = (k + 1)(k + 1)(k + 1) + 2k + 2\\
+		& = (k^2 + 2k + 1)(k + 1) + 2k + 2\\
+		& = (k^3 + k^2 + 2k^2 + 2k + k + 1) + 2k + 2\\
+		& = k^3 + 2k + 3k^2 + 3k + 3\\
+		& = k^3 + 2k + 3(k^2 + k + 1)
+		\end{split}
 	\end{equation}
 
-	Para $n = 3$, temos
-	\begin{equation}
-		\dfrac{3^3 + 2*3}{3} = \dfrac{9 + 6}{3} = 5
-	\end{equation}
-
-	Para $n = 4$, temos
-	\begin{equation}
-		\dfrac{4^3 + 2*4}{3} = \dfrac{64 + 8}{3} = 24
-	\end{equation}
-
-	Então vamos supor que para um $n = k$ isso também dá certo.
-	\begin{equation}
-		\dfrac{k^3 + 2k}{3} = ??
-	\end{equation}
+	Então, pela hipótese, $k^3 + 2k$ é divisível por 3 e $3(k^2 + k + 1)$ também.
 \end{proof}
 
 \subsection*{(d)}
@@ -202,15 +202,21 @@
 		\dfrac{9^1 - 1}{8} = \dfrac{8}{8} = 1
 	\end{equation}
 
-	Para $n = 2$, temos
-	\begin{equation}
-		\dfrac{9^2 - 1}{8} = \dfrac{80}{8} = 10
-	\end{equation}
-
 	Então vamos supor que para um $n = k$ isso também dá certo.
 	\begin{equation}
-		\dfrac{9^k - 1}{8} = ??
+		9^k - 1 \text{, é divisível por 8}
 	\end{equation}
+
+	Daí, vamos provar para $n = k + 1$
+	\begin{equation}
+	\begin{split}
+		9^{k+1} - 1 & = 9^k * 9 - 1 \\
+		& = 9^k - 1 + 8*9^k
+	\end{split}
+	\end{equation}
+
+	Da hipotese, temos que $9^k - 1$ é verdade, e $8*9^k$ é obviamente
+	divisível por 8.
 \end{proof}
 
 \subsection*{(e)}
@@ -220,11 +226,6 @@
 \end{teo5}
 
 \begin{proof}
-	Para $n = 0$, temos
-	\begin{equation}
-		\dfrac{0^2 - 1}{8} = 0
-	\end{equation}
-
 	Para $n = 1$, temos
 	\begin{equation}
 		\dfrac{1^2 - 1}{8} = 0
@@ -235,10 +236,27 @@
 		\dfrac{3^2 - 1}{8} = \dfrac{8}{8} = 1
 	\end{equation}
 
-	Então vamos supor que para um $n = k$ isso também dá certo.
+	Então vamos supor que para um $n = 2k + 1$ isso também dá certo.
+
 	\begin{equation}
-		\dfrac{k^2 - 1}{8} = ??
+	\begin{split}
+		(2k + 1)^2 - 1 & = 4k^2 + 4k + 1 - 1 \\
+		& = 4k^2 + 4k \text{ é divisível por 8}
+	\end{split}
 	\end{equation}
+
+	Daí vamos provar para $n = 2k + 3$
+	\begin{equation}
+	\begin{split}
+		(2k + 3)^2 - 1 = 4k^2 + 12k + 9 - 1\\
+		& = 4k^2 + 12k + 8\\
+		& = 4k^2 + 4k + (8k - 8)\\
+		& = 4k^2 + 4k + 8(k - 1)
+	\end{split}
+	\end{equation}
+
+	Pela hipótese, $4k^2 + 4k$ é divisível por 8 e $8(k - 1)$ é obviamente
+	divisível por 8.
 \end{proof}
 
 \subsection*{(f)}
@@ -273,13 +291,13 @@
 	vamos provar para $n = k +1$
 	\begin{equation}
 		\begin{split}
-		\sum\limits_{i = 1}^{k+1}i * (i+1)  = & \dfrac{(k + 1)(k + 2)(k + 3)}{3}\\
-		\sum\limits_{i = 1}^{k}i * (i+1) + (k + 1)(k + 2) = &\dfrac{(k + 1)(k + 2)(k + 3)}{3}\\
-		\dfrac{k(k + 1)(k + 2)}{3} + (k^2 + 3k + 2) = &\\
-		\dfrac{k(k + 1)(k + 2) + 3*(k^2 + 3k + 2) }{3}  = &\\
-		\dfrac{k^3 + 3k^2 + 2k + 3k^2 + 9k + 6 }{3}  = &\\
-		\dfrac{k^3 + 6k^2 + 11k + 6}{3} = & \\
-		\dfrac{(k + 1)(k + 2)(k + 3)}{3} = &
+		\dfrac{(k + 1)(k + 2)(k + 3)}{3} & = \sum\limits_{i = 1}^{k+1}i * (i+1)\\
+		&  = \sum\limits_{i = 1}^{k}i * (i+1) + (k + 1)(k + 2) \\
+		&  = \dfrac{k(k + 1)(k + 2)}{3} + (k^2 + 3k + 2) \\
+		&  = \dfrac{k(k + 1)(k + 2) + 3*(k^2 + 3k + 2) }{3}  \\
+		&  = \dfrac{k^3 + 3k^2 + 2k + 3k^2 + 9k + 6 }{3}  \\
+		&  = \dfrac{k^3 + 6k^2 + 11k + 6}{3}  \\
+		&  = \dfrac{(k + 1)(k + 2)(k + 3)}{3} 
 		\end{split}
 	\end{equation}
 \end{proof}
@@ -300,19 +318,69 @@
 		\dfrac{2^{1+2}+3^{2+1}}{7} = \dfrac{8 + 27}{7} = 5 
 	\end{equation}
 
-	Para $n = 2$ temos
+	Vamos supor que para $n = k$ isso também é verdade
 	\begin{equation}
-		\dfrac{2^{2+2}+3^{4+1}}{7} = \dfrac{16 + 243}{7} = 37
+		2^{k+2} + 3^{2k+1}\text{, é divisível por 7}
 	\end{equation}
 
-	Vamos supor que para $n = k$ também é verdade
+	Agora vamos provar que para $n = k + 1$ também é verdade
 	\begin{equation}
-		\dfrac{2^{n+2} + 3^{2n+1}}{7} = ??
+	\begin{split}
+		2^{k+3} + 3^{2(k+1)+1} & = 2^{k+2} + 2^{k+2} + 3^{2k + 3}\\
+		& = 2^{k+2} + 2^{k+2} + 3^{2k+1} + 3^{2k+1} + 7*3^{2k + 1} \\
+		& = (2^{k+2} + 3^{2k+1}) + (2^{k+2} + 3^{2k+1}) + 7*3^{2k + 1} 
+	\end{split}
 	\end{equation}
+
+	Pela hipótese $2^{k+2} + 3^{2k+1}$ é divisível por 7, e obviamente 
+	$7*3^{2k+1}$ também.
 \end{proof}
+\newpage
 
 \section{Exercício 2}
-\begin{proof}
+\begin{equation}
+	\sum\limits_{k=0}^{n}\left(\begin{array}{c} n \\ k \end{array} \right) = 2^n
+\end{equation}
 
+
+\begin{proof}
+Para $n = 1$, temos
+\begin{equation}
+	\begin{split}
+	\sum\limits_{k=0}^{1}\left(\begin{array}{c} 1 \\ k \end{array} \right) &= 2^1\\
+	\left(\begin{array}{c}1 \\ 0 \end{array} \right)+\left(\begin{array}{c} 1 \\ 1 \end{array} \right) & = \\
+	\left(\begin{array}{c} 0 \\ 1 \end{array} \right) + \left(\begin{array}{c} 0 \\ 0 \end{array} \right) & =\\
+	1 + 1 &= 2
+	\end{split}
+\end{equation}
+
+Para $n = 2$, temos
+\begin{equation}
+	\begin{split}
+	\sum\limits_{k=0}^{2}\left(\begin{array}{c} 2 \\ k \end{array} \right) & = 2^2\\
+	\left(\begin{array}{c} 2 \\ 0 \end{array} \right) + \left(\begin{array}{c} 2 \\ 1 \end{array} \right) + \left(\begin{array}{c} 2 \\ 2 \end{array} \right) & = \\
+	\left(\begin{array}{c} 1 \\ 1 \end{array} \right) + \left(\begin{array}{c} 1 \\ 0 \end{array} \right) + \left(\begin{array}{c} 1 \\ 2 \end{array} \right) + \left(\begin{array}{c} 1 \\ 1 \end{array} \right) & =\\
+	\left(\begin{array}{c} 0 \\ 1 \end{array} \right) + \left(\begin{array}{c} 0 \\ 0 \end{array} \right) + 0 + 0 + \left(\begin{array}{c} 0 \\ 1 \end{array} \right) + \left(\begin{array}{c} 0 \\ 0 \end{array} \right) &=\\
+	1 + 1 + 1 + 1 & = \\
+	4 & = 4
+	\end{split}
+\end{equation}
+
+Vamos assumir que para $n = j$ isso é verdade
+\begin{equation}
+	\sum\limits_{k=0}^{j}\left(\begin{array}{c} j \\ k \end{array} \right) = 2^j
+\end{equation}
+
+Então, provaremos para $n = j + 1$
+\begin{equation}
+	\begin{split}
+	\sum\limits_{k=0}^{j+1}\left(\begin{array}{c} j+1 \\ k \end{array} \right) & = 2^{j+1}\\
+	\sum\limits_{k=0}^{j+1}\left(\begin{array}{c} j \\ k \end{array} \right) + \sum\limits_{k=0}^{j+1}\left(\begin{array}{c} j \\ k-1 \end{array} \right) & = \\
+	\sum\limits_{k=0}^{j}\left(\begin{array}{c} j \\ k \end{array} \right) + \left(\begin{array}{c} j \\ j+1 \end{array} \right) + \left(\begin{array}{c} j \\ -1 \end{array} \right) + \left(\begin{array}{c} j \\ 0 \end{array} \right) + .. + \left(\begin{array}{c} j \\ j \end{array} \right)& = \\
+	2^j + 0 + 0 + \left(\begin{array}{c} j \\ 0 \end{array} \right) + .. + \left(\begin{array}{c} j \\ j \end{array} \right) & =  \\
+	2^j + \sum\limits_{k=0}^{j}\left(\begin{array}{c} j \\ k \end{array} \right) & = \\
+	2^j + 2^j & = 2^{j+1}
+	\end{split}
+\end{equation}
 \end{proof}
 \end{document}
