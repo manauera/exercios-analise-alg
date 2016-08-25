@@ -1,0 +1,172 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 4}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all  
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+
+\section{Exercício 1}
+\newtheorem{teo1}{Teorema}
+\begin{teo1}
+	Para todo $n \geq 0$, $g(n)$ devolve $3^n-2^n$
+\end{teo1}
+\begin{proof}
+	\hfill \break
+	\textbf{Base} : para $n = 0$, g(n) devolve 0 e está correto,\newline
+	\hspace*{30pt} para $n = 1$, g(n) devolve 1 e está correto também\newline
+	\newline
+	\textbf{Hipótese} : para $n \geq 2$ e todo $0\leq m < n$, g(m) devolve $3^m-2^m$\newline
+	\textbf{Passo} : queremos provar que para g(n), o algoritmo devolve $3^n-2^n$.\newline
+	\hspace*{30pt} assim temos \newline
+	\begin{equation}
+		\begin{split}
+		& 5*g(n-1) - 6*g(n-2) \\
+		&5*(3^{n-1} - 2^{n-1}) - 6(3^{n-2}-2^{n-2})\\
+		&5*3^{n-1} - 5*2^{n-1} - 2*3*3^{n-2} + 3*2*2^{n-2}\\
+		&5*3^{n-1} - 2*3^{n-1} - 5*2^{n-1} + 3*2^{n-1}\\
+		&3*3^{n-1} - 2*2^{n-1} = 3^n - 2^n
+		\end{split}	
+	\end{equation}	
+
+\end{proof}
+
+\section{Exercício 2}
+\newtheorem{teo2}{Teorema}
+\begin{teo2}
+	Para todo $y,z \geq 0$, mult(y,z) retorna $y*z$
+\end{teo2}
+\begin{proof}
+	\hfill \break
+	\textbf{Base} : para $z = 0$, $mult(y, 0)$ devolve 0 e está correto,\newline
+	\hspace*{30pt} para $z = 1$, $mult(y, 1)$ devolve\newline
+	\hspace*{30pt} $mult(2y, \floor*{\dfrac{1}{2}}) + y(1 mod 2)$ \newline
+	\hspace*{30pt} $mult(2y, 0) + y*1$\newline
+	\hspace*{30pt} $ 0 + y = y$, o que está certo também.
+	\newline
+	\textbf{Hipótese} : para $z \geq 2$ e todo $0 \leq n \leq z$, $mult(y,n)$ devolve $y * n$\newline
+	\textbf{Passo} : queremos provar que para $mult(y,z+1)$, o algoritmo devolve $y*(z+1)$.\newline
+	\hspace*{30pt} assim temos \newline
+	\hspace*{30pt} Para $z+1$ ímpar \newline
+	\begin{equation}
+		\begin{split}
+		mult(y,z+1) & = mult(2y, \floor*{\dfrac{(z+1)}{2}}) + y\\
+		& = 2y*\floor*{\dfrac{(z+1)}{2}} + y\text{, da hipótese}\\
+		& = 2y*\dfrac{z}{2} + y\\
+		& = y*z + y = y*(z+1)
+		\end{split}	
+	\end{equation}	
+	\hspace*{30pt} Para $z+1$ par
+	\begin{equation}
+		\begin{split}
+		mult(y,z+1) & = mult(2y, \floor*{\dfrac{(z+1)}{2}})\\
+		& = 2y*\dfrac{(z+1)}{2}\text{, da hipótese}\\
+		& = y*(z+1)
+		\end{split}	
+	\end{equation}	
+\end{proof}
+
+\section{Exercício 3}
+\newtheorem{teo3}{Teorema}
+\begin{teo3}
+	Para todo $y,z \geq 0$, o algoritmo $power(y,z)$ devolve $y^z$.
+\end{teo3}
+\begin{proof}
+	\hfill \break
+	\textbf{Base} : para $z = 0$, $power(y, 0)$ devolve 1 e está correto,\newline
+	\hspace*{30pt} para $z = 1$, $power(y, 1)$ devolve\newline
+	\hspace*{30pt} $power(y^2, \floor*{\dfrac{1}{2}})*y$ \newline
+	\hspace*{30pt} $1*y = y$, o que está certo também.\newline
+	\newline
+	\textbf{Hipótese} : para $z \geq 2$ e todo $0 \leq n \leq z$, $power(y,n)$ devolve $y^n$\newline
+	\textbf{Passo} : queremos provar que para $power(y,z+1)$, o algoritmo devolve $y^{z+1}$.\newline	
+	\hspace*{30pt} Para $z+1$ ímpar, temos
+	\begin{equation}
+		\begin{split}
+		power(y, z+1) & = power(y^2, \floor*{\dfrac{(z+1)}{2}})*y\\
+		& = y^{2\floor*{\dfrac{z}{2}}}*y\text{, pela hipótese}\\
+		& = y^{2*\dfrac{z}{2}}*y\\
+		& = y^z*y = y^{z+1}
+		\end{split}
+	\end{equation}
+	\hspace*{30pt} Para $z+1$ par, temos
+	\begin{equation}
+		\begin{split}
+		power(y, z+1) & = power(y^2, \floor*{\dfrac{(z+1)}{2}})\\
+		& = y^{2*\dfrac{(z+1)}{2}}\text{, pela hipótese} \\
+		& = y^{z+1}
+		\end{split}
+	\end{equation}
+\end{proof}
+
+\section{Exercício 4}
+\newtheorem{teo4}{Teorema}
+\begin{teo4}
+	Para todo $n > 0$, o algoritmo $sum(A,n)$ devolve $\sum\limits_{i=1}^{n}A[i]$.
+\end{teo4}
+\begin{proof}
+	\hfill \break
+	\textbf{Base} : para $n = 1$, $sum(A, 1)$ devolve $A[1]$ e está correto,\newline
+	\hspace*{30pt} para $n = 2$, $sum(A, 2)$ devolve\newline
+	\hspace*{30pt} $sum(A, 2-1) + A[2]$ \newline
+	\hspace*{30pt} $sum(A, 1) + A[2] = A[1] + A[2]$, o que está certo também.\newline
+	\newline
+	\textbf{Hipótese} : para $n \geq 3$ e todo $0 \leq m \leq n$, $sum(A,m)$ devolve $\sum\limits_{i=1}^{m}A[i]$\newline
+	\textbf{Passo} : queremos provar que para $sum(A,n+1)$, o algoritmo devolve $\sum\limits_{i=1}^{n+1}A[i]$.\newline	
+	\hspace*{30pt} Assim temos
+	\begin{equation}
+		\begin{split}
+		sum(A,n+1) & = sum(A,n) + A[n+1]\\
+		& = \sum\limits_{i=1}^{n}A[i] + A[n+1]\text{, pela hipótese}\\
+		& = \sum\limits_{i=1}^{n+1}A[i]
+		\end{split}
+	\end{equation}
+\end{proof}
+\end{document}
