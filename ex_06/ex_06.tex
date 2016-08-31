@@ -1,0 +1,118 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 4}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+\usepackage{color}   %May be necessary if you want to color links
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all  
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+
+\section{Exercício 1}
+Informalmente, o custo do algoritmo ficaria $\Theta(n^3)$.
+
+\section{Exercício 2}
+\subsection*{(a)}
+	\begin{algorithm}
+	\KwIn{Um vetor A[1..n]}
+	\KwOut{O vetor A ordenado}
+	\caption{Selection Sort}
+	\For{$i \gets 0$ \textbf{to} $n-1$}{
+		$m \gets i$\\
+		\For{$j \gets i+1$ \textbf{to} $n$}{
+			\If{$A[m] < A[j]$}{
+				$m \gets j$
+			}
+		}
+        $aux \gets A[i]$\\
+		$A[i] \gets A[m]$\\
+        $A[m] \gets aux$
+	}
+	\end{algorithm}
+
+\subsection*{(b)}
+    Como o menor elemento do vetor é sempre trocado com a primeira posição do vetor, 
+    quando o algoritmo chega no último elemento, todos os $n-1$ elementos anteriores 
+    são menores que o último elemento.
+
+\subsection*{(c)}
+    Para este algoritmo, o melhor caso é igual ao pior caso, e é exatamente $(n-1)*\sum\limits_{i=1}^{n-1}(n-i)$
+
+\subsection*{(d)}
+    Dado o tempo exato do exercício (c), assintoticamente falando o algoritmo roda em
+    tempo $\Theta(n^2)$.
+\\
+\\
+\section{Exercício 3}
+\subsection*{(a)}
+    \begin{algorithm}
+    \KwIn{Uma sequencia de $n$ números $A = (a_1, a_2, .. ,a_n)$ e um valor $v$}
+    \KwOut{Um índice tal que $v = A[i]$ ou um valor especial $NIL$ se $v$ não aparece em A}
+    \caption{Busca Linear}
+    \For{$i \gets 0$ \textbf{to} $n$}{
+        \If{$A[i] = v$}{
+            \Return $v$
+        }
+    }
+    \Return $NIL$
+    \end{algorithm}
+\subsection*{(b)}
+    
+
+\subsection*{(c)}
+    Se o elemento pode estar distribuido estatisticamente semelhante, metade das vezes estará na metade inicial, na outra metade, estará na metade final. Daria uma média 
+    de $\dfrac{n}{2}$ comparações
+
+\subsection*{(d)}
+    O pior caso seria se o elemento estivesse na última posição do vetor, fazendo $n$ 
+    comparações. 
+
+\subsection*{(e)}
+    Em ambos os casos, na notação assintótica, teremos um tempo de execução de $\Theta(n)$.
+\end{document}
