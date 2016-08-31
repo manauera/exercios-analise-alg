@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 5}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all  
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+
+\section{Exercício 1}
+    \textbf{Fatos dos algoritmo} \\
+    \hspace*{30pt} $a_0 = 2$,\hspace{30pt} $m_0 = A[1]$ \\
+    \hspace*{30pt} $a_{j+1} = a_j + 1$, $m_j+1 = max(m_{j}, A[j+1])$\\
+    \textbf{Invariantes de laços} \\
+    \\
+    \textbf{Teorema.} Para todo natural $j \geq 0$, $i_j = j + 2$ e $m_j = max(m_{j-1}, A[j])$.
+    
+    \begin{proof}
+        \hfill \break
+        \textbf{Base:} \\
+        \hspace*{30pt} Para $j = 0$ é trivial:\\
+        \hspace*{30pt} $i_0 = 2$ e $m_0 = max(m_0, A[1]) = A[1]$\\
+        \textbf{Hipotese:}\\
+        \hspace*{30pt} Para $j \geq 0$, $i_j = j + 2$ e $m_j = max(m_{j-1}, A[j])$\\
+        \textbf{Passo:}\\
+        \hspace*{30pt} Queremos mostrar que $i_{j+1} = j + 3$ e $m_{j+1} = max(m_j, A[j+1])$\\
+        \begin{equation}
+            \begin{split}
+                i_{j+1} & = i_j + 1\\
+                \text{(hip.)} & = (j + 1) + 2\\
+                & = j + 3\\
+                \\
+                m_{j+1} & = max(m_j, A[i])\\
+            \end{split}
+        \end{equation}
+    \end{proof}
+\end{document}
