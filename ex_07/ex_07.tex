@@ -1,0 +1,159 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 4}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+
+\section{Exercício 1}
+Para mostrar que $\log_b n \leq c * \log_a n$, basta
+\begin{equation}
+    \begin{split}
+    \log_b n  = \dfrac{\log_a n}{\log_a b} & \leq c*\log_a n\\
+    \dfrac{1}{\log_a b} & \leq c
+    \end{split}
+\end{equation}
+
+Então, para um $c \geq \dfrac{1}{\log_a b}$ e um $n_0 \geq 1$
+\begin{equation}
+    \log_b n = O(\log_a n)
+\end{equation}
+
+\section{Exercício 2}
+Pela definição, $\exists c_1, n_1$ tal que $\bar{f}(n) \leq c_1f(n)$
+para $n \geq n_1$\\
+E pela definição, $\exists c_2, n_2$ tal que $\bar{g}(n) \leq c_2g(n)$
+para $n \geq n_2$\\
+Assim\\
+\begin{equation}
+    \begin{split}
+        \bar{f}(n)\bar{g}(n) &\leq c_1f(n)c_2g(n)\\
+        &\leq c_3f(n)g(n)\text{, onde }c_3 = c_1 * c_2
+    \end{split}
+\end{equation}
+para $n \geq max\{n_1,n_2\}$
+
+\section{Exercício 3}
+Se dividir a função $f(x)$ em 3 funções, teremos
+\begin{equation}
+    \begin{split}
+        g(x) & = x + 1\\
+        h(x) & = \log(x^2 + 1)\\
+        i(x) & = 3x^2\\
+        f(x) & = g(x)h(x) + i(x)
+    \end{split}
+\end{equation}
+Então,
+\begin{equation}
+    \begin{split}
+        g(x) & = O(x + 1) = O(x)\\
+        h(x) & = O(\log(x^2 + 1)) = O(\log x^2) = O(\log x)\\
+        i(x) & = O(3x^2) = O(x^2)
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        f(x) & = O(x)*O(\log x) + O(x^2)\\
+        & = O(x\log x) + O(x^2)\\
+        & = O(x^2)
+    \end{split}
+\end{equation}
+
+\section{Exercício 4}
+Sim para o primeiro, pois existe uma constante $c$ tal que
+\begin{equation}
+    2^{n+1} \leq c * 2^n
+\end{equation}
+\hspace*{40pt}para um $n_0 \geq 1$ e $c = 2$
+
+Porém, para o segundo, temos
+\begin{equation}
+    2^{2n} = c * 2^n
+\end{equation}
+
+para um $n_0 \geq 0$ e um $c = 2^{10000}$, quando $n = 10001$ teremos
+\begin{equation}
+    \begin{split}
+        2^{2*10001} &\leq 2^{10000} * 2^{10001}\\
+        2^{20002} & \leq 2^{20001}
+    \end{split}
+\end{equation}
+o que é falso, portanto não há uma constante que multiplica $2^n$ tal que
+para todo $n > n_0$, $2^{2n}$ seja menor que $c*2^n$
+
+\section{Exercício 5}
+\subsection*{(a)}
+\begin{proof}
+    \hfill \break
+    $2^n = 2 * 2 * 2 * 2 * .. * 2$, enquanto\\
+    $n!  = n * (n - 1) * (n - 2) * .. * 4 * 3 * 2 * 1$\\
+
+    Então, para um $n_0 = 1$ e um $c = 2$, $2^n = O(n!)$
+\end{proof}
+
+\subsection*{(b)}
+\begin{proof}
+    \hfill \break
+    Como $\log n!$ pode ser reescrito da seguinte forma:
+    \begin{equation}
+        \log n! = \sum\limits_{i = 0}^{n}\log(n - i)
+    \end{equation}
+    E assim teremos o seguinte
+    \begin{equation}
+        \begin{split}
+        \sum\limits_{i=0}^{n}log(n-i) & < \sum\limits_{i=0}^{n}\log n\\
+        & =n * \log n = O(n\log n)
+    \end{split}
+    \end{equation}
+\end{proof}
+
+\end{document}
