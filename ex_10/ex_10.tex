@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 4}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+\section{Exercício 1}
+MergeSort([3,41,52,26,38,57,9,49])\\
+chama recursivamente para MergeSort([3,41,52,26])\\
+depois, MergeSort([3,41])\\
+Então retorna para a execução anterior, e executa a outra parte:\\
+MergeSort([52,26]), que retorna [26,52]\\
+daí intercala e retorna [3,26,41,52]\\
+\\
+Voltando para a chamada inicial, chama recursivamente MergeSort([38,57,9,49])\\
+Chama recursivamente MergeSort([38,57]) e retorna [38,57]\\
+e executa a outra parte, MergeSort([9,49]), que retorna [9,49]\\
+Retornando para a chamada inicial com [9,38,49,57], temos\\
+Intercala([3,26,41,52], [9,38,49,57]), que retorna [3,9,26,38,41,49,52,57]
+e termina a execução do algoritmo.
+
+\section{Exercício 2}
+
+\end{document}
