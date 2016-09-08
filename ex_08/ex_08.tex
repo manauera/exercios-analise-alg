@@ -23,6 +23,7 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{color}   %May be necessary if you want to color links
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
 
 \usepackage{mathtools}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -52,7 +53,21 @@
 
 
 \chapter{}
-
+\section{Exercício 1}
+ \begin{algorithm}[H]
+   \SetAlgoLined
+   \Entrada{$S,\eta, U$} 
+   \Saida{Número esperado de nodos atingidos}
+   \Inicio{
+   $\sigma(S) = 0$ \\
+    \Para{cada $u \in S$}{
+   $\sigma(S)\leftarrow \sigma(S)+\textsc{Backtrack}(u,\eta,W,U)$\\
+     }
+   }
+   \Retorna{$\sigma(S)$}
+   \label{alg1}
+   \caption{\textsc{Esperança}}
+ \end{algorithm}
 \section{Exercício 5}
 Uma função $f(x)$ dita $\Omega(1)$ quando existe uma constante $c$ tal que
 a partir de um $n$ inicial $n_0$, o seguinte é sempre verdadeiro
