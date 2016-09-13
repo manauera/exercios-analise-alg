@@ -1,0 +1,115 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 4}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+\section{Exercício 1}
+\subsection*{(a)}
+O algoritmo sempre executa o mesmo número de passos
+\subsection*{(b)}
+\begin{equation}
+    g(n)=\begin{cases}
+    n, & \text{se $n\leq 1$}.\\
+    5g(n-1) - 6g(n-2), & \text{caso contrário}.
+\end{cases}
+\end{equation}
+
+\section{Exercício 2}
+\subsection*{(a)}
+O algoritmo sempre executa o mesmo número de passos
+\subsection*{(b)}
+\begin{equation}
+    mult(y,z)=\begin{cases}
+    0, & \text{se $z = 0$}.\\
+    mult(2y, \floor*{\dfrac{z}{2}}) + y(\text{z mod 2}), & \text{caso contrário}.
+\end{cases}
+\end{equation}
+
+\section{Exercício 3}
+\subsection*{(a)}
+O algoritmo sempre executa o mesmo número de passos
+\subsection*{(b)}
+\begin{equation}
+    power(y,z)=\begin{cases}
+    1, & \text{se }z = 0\\
+    power(y^2, \floor*{\dfrac{z}{2}})*y, & \text{se $z$ for ímpar}\\
+    power(y^2, \floor*{\dfrac{z}{2}}), & \text{se $z$ for par}
+\end{cases}
+\end{equation}
+
+\section{Exercício 4}
+\subsection*{(a)}
+O algoritmo sempre executa o mesmo número de passos, como o algoritmo tem que somar
+todos os elementos de uma lista, sempre executará um número de passos igual ao
+tamanho da lista.
+\subsection*{(b)}
+\begin{equation}
+    sum(A,n)=\begin{cases}
+    A[1], & \text{se $n \leq 1$}\\
+    sum(A, n-1)+ A[n], &\text{caso contrário}
+\end{cases}
+\end{equation}
+
+\section{Exercício 5}
+\subsection*{(a)}
+O algoritmo sempre executa o mesmo número de passos, como tem que retornar o
+\textit{maior} número de uma lista, não tem mágica, tem comparar com todo mundo
+ou o algoritmo está errado.
+\subsection*{(b)}
+\begin{equation}
+    maximo(A,x,y)=\begin{cases}
+    max(A[x],A[y]), &\text{se $y-x\leq1$}\\
+    max(maximo(x,\floor*{(x+y)/2}), maximo(\floor*{(x+y)/2},y)+1, & \text{caso contrário}
+\end{cases}
+\end{equation}
+\end{document}
