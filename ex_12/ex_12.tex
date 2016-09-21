@@ -1,0 +1,230 @@
+\documentclass{article}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Lista de Exercícios 12}
+\author{Gustavo Higuchi}
+\date{\today}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% usado para linkar cada section na tabela de conteúdo com a respectiva
+% página no documento
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linktoc=all
+}
+
+%o começo do documento
+\begin{document}
+
+% compila o título
+\maketitle
+
+% compila a tabela de conteúdos
+\tableofcontents
+\newpage
+
+
+\chapter{}
+\section{Exercício 1}
+\newtheorem{teo1}{Teorema}
+\begin{teo1}
+    \begin{equation}
+        T(n)=\begin{cases}
+        1, & \text{se $n = 1$}\\
+        T(\floor*{n/2}) + 1, &\text{se $n > 1$}
+    \end{cases}
+    \end{equation}
+    T(n) é $O(\log n)$
+\end{teo1}
+\begin{proof}
+    \hfill \break
+    \textbf{Hipótese} : $T(k) \leq c\log k$, para todo $n_0 \leq k < n$, onde $c$ e $n_0$ são constantes\newline
+    \textbf{Passo} : quero provar que para $T(n) \leq c\log n$.\newline
+    \hspace*{30pt} Assim temos \newline
+    \begin{equation}
+        \begin{split}
+            T(n) &= T(\ceil*{n/2}) + 1 \\
+            & \leq c\log\ceil*{n/2} + 1\\
+            & = c(\log n-1) + 1\\
+            & = c\log n - c + 1\\
+            T(n) & \leq c\log n -c + 1\\
+            & \leq c\log n \text{, se $c \leq 1$}
+        \end{split}
+    \end{equation}
+    A afirmação é verdadeira para um $c = 1$ e $n_0 \geq 1$
+\end{proof}
+
+\section{Exercício 2}
+\newtheorem{teo2}{Teorema}
+\begin{teo2}
+    \begin{equation}
+        T(n)=\begin{cases}
+        8, & \text{se n = 1}\\
+        2T(\floor*{n/2}) + n, & \text{se n > 1}
+    \end{cases}
+    \end{equation}
+    T(n) é $\Theta(n \log n)$.
+\end{teo2}
+\begin{proof}
+    \hfill \break
+    \textbf{Hipótese} : $T(k) \leq ck\log k$, para todo $n_0 \leq k < n$, onde $c$ e $n_0$ são constantes\newline
+    \textbf{Passo} : Quero provar que para $T(n) \leq cn\log n$.\newline
+    \hspace*{30pt} Assim temos \newline
+    \begin{equation}
+        \begin{split}
+            T(n) &= 2T(\floor*{n/2}) + n \\
+            & \leq 2c\floor*{n/2} \log \floor*{n/2} + n\\
+            & = 2c\floor*{n/2} (\log n - 1) + n\\
+            & = 2c\floor*{n/2}\log n - 2c\floor*{n/2} + n \\
+            & \leq cn\log n - cn + n\\
+            T(n) & \leq cn \log n
+        \end{split}
+    \end{equation}
+    T(n) é $O(n\log n)$ para um $c = 9$ e $n_0 \geq 2$
+    \begin{equation}
+        \begin{split}
+            T(n) &= 2T(\floor*{n/2}) + n \\
+            & \geq 2c\floor*{n/2} \log \floor*{n/2} + n\\
+            & = 2c\floor*{n/2} (\log n - 1) + n\\
+            & = 2c\floor*{n/2}\log n - 2c\floor*{n/2} + n \\
+            & \geq cn\log n - cn + n\\
+            T(n) & \geq cn \log n
+        \end{split}
+    \end{equation}
+    T(n) é $\Omega(n\log n)$ para um $c = 1$ e um $n_0 \geq 2$\newline
+    Portanto, T(n) é $\Theta(n\log n)$
+\end{proof}
+
+\section{Exercício 3}
+\newtheorem{teo3}{Teorema}
+\begin{teo3}
+    \begin{equation}
+        T(n)=\begin{cases}
+        1, & \text{se n = 1}\\
+        2T(\floor*{n/2} + 17) + n, & \text{se n > 1}
+    \end{cases}
+    \end{equation}
+    T(n) é $\Theta(n \log n)$.
+\end{teo3}
+\begin{proof}
+    \hfill \break
+    \textbf{Hipótese} : $T(k) \leq ck\log k$, para todo $n_0 \leq k < n$, onde $c$ e $n_0$ são constantes\newline
+    \textbf{Passo} : Quero provar que para $T(n) \leq cn\log n$.\newline
+    \hspace*{30pt} Assim temos \newline
+    \begin{equation}
+        \begin{split}
+            T(n) &= 2T(\floor*{n/2} + 17) + n \\
+            & \leq 2c(\floor*{n/2}+17)\log (\floor*{n/2} + 17) + n\\
+            & = 2c(\floor*{n/2}+17)\log \floor*{n/2} + \log(1+\dfrac{17}{\floor*{n/2}}) + n\\
+            T(n) & \leq cn \log n
+        \end{split}
+    \end{equation}
+    T(n) é $O(n\log n)$ para um $c = 9$ e $n_0 \geq 2$
+    \begin{equation}
+        \begin{split}
+            T(n) &= 2T(\floor*{n/2}) + n \\
+            & \geq 2c\floor*{n/2} \log \floor*{n/2} + n\\
+            & = 2c\floor*{n/2} (\log n - 1) + n\\
+            & = 2c\floor*{n/2}\log n - 2c\floor*{n/2} + n \\
+            & \geq cn\log n - cn + n\\
+            T(n) & \geq cn \log n
+        \end{split}
+    \end{equation}
+    T(n) é $\Omega(n\log n)$ para um $c = 1$ e um $n_0 \geq 2$\newline
+    Portanto, T(n) é $\Theta(n\log n)$
+\end{proof}
+
+\section{Exercício 4}
+\subsection*{(a)}
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \Entrada{$A$, $v$}
+  \Saida{índice $i$ de $v$ em $A$ }
+  \Inicio{
+    \Se{$v = A[n/2]$}{
+        \Retorna $n/2$
+    }
+    \Se{$n = 0$}{
+        \Retorna $nil$
+    }
+    \Senao{
+        \Se{ $v < A[n/2]$}{
+            $busca(A[0,n/2-1], v)$
+        }
+        \Senao{
+            $busca(A[n/2+1, n], v)$
+        }
+    }
+  }
+  \label{alg1}
+  \caption{busca}
+\end{algorithm}
+
+\subsection*{(b)}
+\begin{equation}
+    busca(A[0,n],v) = \begin{cases}
+        n/2&\text{, se A[n/2] = v}\\
+        busca(A[0,n/2-1]) + 1&\text{, $se A[n/2] > v$}\\
+        busca([n/2+1, n]) + 1&\text{, $se A[n/2] < v$}\\
+        nil&\text{, se n = 0}
+    \end{cases}
+\end{equation}
+    Onde $i = \floor*{\dfrac{inicio+fim}{2}}$
+
+\subsection*{(c)}
+\newtheorem{teo4}{Teorema}
+\begin{teo4}
+    $busca(A, v)$ é $\Theta(\log n)$.
+\end{teo4}
+\begin{proof}
+    \hfill \break
+    \textbf{Hipótese} : $busca(A[0,k], v) \leq c\log k$, para todo $n_0 \leq k < n$, onde $n$ é o tamanho de A, $c$ e $n_0$ são constantes\newline
+    \textbf{Passo} : Quero provar que para $busca(A[0,n], v) \leq c\log n$.\newline
+    \hspace*{30pt}
+    \begin{equation}
+        \begin{split}
+        busca(n, v) & = busca(n/2, v) + 1\\
+        & \leq c\log n/2 + 1\\
+        & = c\log n
+        \end{split}
+    \end{equation}
+    Então $busca(n)$ é $O(\log n)$, para um $c \geq 1$ e um $n_0 \geq 1$
+    \begin{equation}
+        \begin{split}
+            busca(n, v) & = busca(n/2, v) + 1\\
+            & \leq c\log n/2 + 1\\
+            & = c\log n
+        \end{split}
+    \end{equation}
+    Então $busca(n)$ é $\Theta(\log n)$, para um $c \geq 1$ e um $n_0 \geq 1$
+\end{proof}
+
+\end{document}
